@@ -2,7 +2,12 @@ import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
-import { createBrowserRouter, RouterProvider, Outlet,useLocation } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import ErrorPage from "./src/components/ErrorPage";
@@ -11,6 +16,7 @@ import UserContext from "./src/utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./src/utils/appStore";
 import CartPage from "./src/components/CartPage";
+import SubFooter from "./src/components/SubFooter";
 const AppLayout = () => {
   const [userName, setUserName] = useState("");
 
@@ -21,8 +27,6 @@ const AppLayout = () => {
     setUserName(data.name);
   }, []);
 
- 
-
   return (
     <Provider store={appStore}>
       <div className="app">
@@ -30,6 +34,7 @@ const AppLayout = () => {
         <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
           <Outlet />
         </UserContext.Provider>
+        <SubFooter />
       </div>
     </Provider>
   );

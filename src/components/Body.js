@@ -44,7 +44,7 @@ const Body = () => {
     <div className="body my-4">
       <div className="flex justify-between">
         <button
-          className="p-2 border mx-1 rounded-md bg-orange-300 "
+          className="p-2 border font-semibold mx-1 rounded-md bg-orange-200 "
           onClick={() => {
             const filteredList = listofRestraunts.filter(
               (res) => res.info.avgRating > 4
@@ -77,7 +77,7 @@ const Body = () => {
           />
 
           <button
-            className="p-2 border mx-1 rounded-md bg-orange-300"
+            className="p-2 border mx-1 font-semibold rounded-md bg-orange-200"
             onClick={() => {
               const filter = listofRestraunts.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
