@@ -13,7 +13,7 @@ const CartPage = () => {
   const RestaurantMenuItemsWithClearButton =
     ItemsClearButton(RestaurantMenuItems);
   return (
-    <div className="">
+    <div className="h-screen">
       <div className="font-bold text-center ">
         <h1 className=" my-4 text-2xl">Cart Page</h1>
         <button

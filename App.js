@@ -17,6 +17,7 @@ import { Provider } from "react-redux";
 import appStore from "./src/utils/appStore";
 import CartPage from "./src/components/CartPage";
 import SubFooter from "./src/components/SubFooter";
+import Footer from "./src/components/Footer";
 const AppLayout = () => {
   const [userName, setUserName] = useState("");
 
@@ -35,6 +36,7 @@ const AppLayout = () => {
           <Outlet />
         </UserContext.Provider>
         <SubFooter />
+        <Footer />
       </div>
     </Provider>
   );

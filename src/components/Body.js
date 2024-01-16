@@ -41,7 +41,7 @@ const Body = () => {
   return listofRestraunts.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body my-4">
+    <div className="h-full my-4">
       <div className="flex justify-between">
         <button
           className="p-2 border font-semibold mx-1 rounded-md bg-orange-200 "
@@ -101,6 +101,7 @@ const Body = () => {
           </Link>
         ))}
       </div>
+      
     </div>
   );
 };

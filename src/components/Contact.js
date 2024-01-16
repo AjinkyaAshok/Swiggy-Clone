@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <div className="contact-container p-4">
+    <div className="h-screen p-4">
       <h1 className="text-2xl p-2">Contact Page</h1>
       <form action="">
         <input className="border border-black p-2 m-2" type="text" placeholder="Name" />
