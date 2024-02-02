@@ -6,7 +6,6 @@ import {
   createBrowserRouter,
   RouterProvider,
   Outlet,
-  useLocation,
 } from "react-router-dom";
 import About from "./src/components/About";
 import Contact from "./src/components/Contact";
@@ -17,7 +16,7 @@ import { Provider } from "react-redux";
 import appStore from "./src/utils/appStore";
 import CartPage from "./src/components/CartPage";
 import SubFooter from "./src/components/SubFooter";
-import Footer from "./src/components/Footer";
+import Offers from "./src/components/Offers";
 const AppLayout = () => {
   const [userName, setUserName] = useState("");
 
@@ -36,7 +35,6 @@ const AppLayout = () => {
           <Outlet />
         </UserContext.Provider>
         <SubFooter />
-        <Footer />
       </div>
     </Provider>
   );
@@ -52,8 +50,8 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/about",
-        element: <About />,
+        path: "/offers",
+        element: <Offers />,
       },
       {
         path: "/contact",

@@ -1,6 +1,5 @@
 export const LOGO_URL =
-  "https://bsmedia.business-standard.com/_media/bs/img/article/2023-07/17/full/1689574606-2001.png";
-
+  "https://www.canva.com/design/DAF7fEAwKdc/QbWmIxEBtGWh0TDyR-VfYA/view?utm_content=DAF7fEAwKdc&utm_campaign=designshare&utm_medium=link&utm_source=editor";
 export const RES_ITEMS_IMAGE =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
@@ -10,3 +9,5 @@ export const RES_LIST =
 export const RES_MENU =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5912716&lng=73.73890899999999&restaurantId=";
 
+
+  export const LOGO = "https://drive.google.com/file/d/1G1t194HN8_7GyWrVC5J7ZJAStD-mIkXw/view?usp=sharing"

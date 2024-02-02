@@ -41,11 +41,11 @@ const SubFooter = () => {
                   fill="#ffff"
                 />
               </svg>
-              <li className="font-bold text-3xl text-white">Swiggy IN</li>
+              <li className="font-bold text-3xl text-white"></li>
             </div>
 
             <li className="text-gray-400">
-              © 2023 Bundl Technologies Pvt. Ltd
+              © 2023 AjinkyaAshok
             </li>
           </ul>
           <ul className="flex flex-col gap-y-2">
@@ -53,9 +53,9 @@ const SubFooter = () => {
             <li>About</li>
             <li>Careers</li>
             <li>Team</li>
-            <li>Swiggy One</li>
-            <li>Swiggy Instamart</li>
-            <li>Swiggy Genie</li>
+            <li>DashDine One</li>
+            <li>DashDine Instamart</li>
+            <li>DashDine Genie</li>
           </ul>
           <div className="flex flex-col gap-y-6">
             <ul className="flex flex-col gap-y-2">
