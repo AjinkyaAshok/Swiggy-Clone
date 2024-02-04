@@ -10,4 +10,6 @@ export const RES_MENU =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5912716&lng=73.73890899999999&restaurantId=";
 
 
-  export const LOGO = "https://drive.google.com/file/d/1G1t194HN8_7GyWrVC5J7ZJAStD-mIkXw/view?usp=sharing"
+export const LOGO = "https://drive.google.com/file/d/1G1t194HN8_7GyWrVC5J7ZJAStD-mIkXw/view?usp=sharing"
+
+export const EMPTY_CART = "https://shidory.com/assets/images/empty_cart.webp"

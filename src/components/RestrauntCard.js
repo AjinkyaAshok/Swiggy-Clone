@@ -40,7 +40,7 @@ export const withOfferLabel = () => {
       <div>
         <label
           htmlFor=""
-          className="absolute bg-opacity- ml-3 mt-3 z-10 text-xs font-medium shadow-lg bg-white text-black p-1 rounded-md "
+          className="absolute ml-3 mt-3 z-10 text-xs font-medium shadow-lg bg-white text-black p-1 rounded-md "
         >
           OPEN
         </label>

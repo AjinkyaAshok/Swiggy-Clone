@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import RestaurantMenuItems, { ItemsClearButton } from "./RestaurantMenuItems";
 import { clearCart } from "../utils/cartSlice";
+import { EMPTY_CART } from "../utils/constants";
 
 const CartPage = () => {
   const CartItems = useSelector((store) => store.cart.items);
@@ -13,23 +14,20 @@ const CartPage = () => {
   const RestaurantMenuItemsWithClearButton =
     ItemsClearButton(RestaurantMenuItems);
   return (
-    <div className="h-screen">
-      <div className="font-bold text-center ">
-        <h1 className=" my-4 text-2xl">Cart Page</h1>
+    <div className="w-7/12 p-5">
+      <div className="flex justify-between mb-3">
+        <h1 className="font-bold text-2xl">CHECKOUT</h1>
         <button
           onClick={handleClearCart}
-          className="bg-black p-4 m-4 text-xl text-white rounded-lg"
+          className="p-1 mx-1 font- border shadow-sm rounded-md bg-white hover:bg-gray-50"
         >
-          Clear Cart
+          Clear All
         </button>
       </div>
 
-      <div className="w-6/12 mx-auto">
-        {/* there should be a remove button instead of ADD button */}
+      <div className="mx-auto">
         {CartItems.length === 0 ? (
-          <h1 className="font-semibold">
-            Looks like you have not added any item to the cart!!
-          </h1>
+          <img className="size-72" src={EMPTY_CART} alt="" srcset="" />
         ) : (
           <RestaurantMenuItemsWithClearButton
             key={CartItems?.index}

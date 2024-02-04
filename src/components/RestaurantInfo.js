@@ -19,18 +19,18 @@ const [showIndex,setShowIndex] = useState(null)
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
   return (
-    <div className="">
-      <div className="mt-10 p-5 w-6/12 mx-auto bg-orange-100 shadow-md ">
-        <h1 className="text-2xl pb-4 font-bold">{name}</h1>
-        <h3 className="text-sm font-semibold">{cuisines.join(", ")}</h3>
-        <h3 className="text-sm font-semibold">
+    <div className=" w-6/12 mx-auto">
+      <div className="my-6 p-4 flex flex-col bg-white shadow-md">
+        <h1 className="text-sm font-bold">{name}</h1>
+        <h3 className="text-sm font-normal">{cuisines.join(", ")}</h3>
+        <h3 className="text-sm font-normal">
           {"Rs."}
           {costForTwo / 100}
           {" For two"}
         </h3>
       </div>
 
-      <div>
+      <div className="">
         {categories.map((category,index) => (
           <RestaurantItemCategory
             key={category?.card?.card?.itemCards[0].card.info.id}

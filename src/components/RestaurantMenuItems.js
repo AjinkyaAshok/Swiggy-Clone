@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { RES_ITEMS_IMAGE } from "../utils/constants";
-import { addItem,removeItem } from "../utils/cartSlice";
+import { addItem, removeItem } from "../utils/cartSlice";
 import { useLocation } from "react-router-dom";
 
 const RestaurantMenuItems = ({ items }) => {
@@ -12,47 +12,56 @@ const RestaurantMenuItems = ({ items }) => {
     dispatch(removeItem(item));
   };
 
-
   const location = useLocation();
   console.log(location.pathname, "i am here");
   return (
     <div>
       {items.map((item) => (
         <div
-          className="flex justify-between border-b-4 "
+          className="flex border mb-2 shadow-sm flex-row justify-between"
           key={item?.card?.info?.id}
         >
-          <div className="w-8/12 p-10">
+          <div className="flex flex-col p-4">
             <div className="font-semibold mb-4">
               <p>{item?.card?.info?.name}</p>
               <p> Rs.{item?.card?.info?.price / 100}</p>
             </div>
+            <p className="w-2/3 text-justify">
+              {item?.card?.info?.description + ".."}
+            </p>
+          </div>
 
-            <p>{item?.card?.info?.description}</p>
+          <div className="flex w-40 h-40 flex-col justify-center items-center space-y-2">
+            <div className="">
+              <img
+                className="w-min rounded-lg h-20"
+                src={RES_ITEMS_IMAGE + item?.card?.info?.imageId}
+                alt=""
+              />
+            </div>
+            <div>
+              {location.pathname === "/cart" ? (
+                <button
+                  onClick={() => handleRemoveItem(item)}
+                  className="p-1 mx-1 font- border shadow-sm rounded-md bg-white hover:bg-gray-50"
+                >
+                  Remove
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleAddItem(item)}
+                  className="p-1 mx-1 font- border shadow-sm rounded-md bg-white hover:bg-gray-50"
+                >
+                  ADD
+                </button>
+              )}
+            </div>
           </div>
-          <div className="w-4/12 relative ">
-            <img
-              className="w-56 h-36 m-4 absolute"
-              src={RES_ITEMS_IMAGE + item?.card?.info?.imageId}
-              alt=""
-            />
-            {location.pathname == "/cart" ? (
-              <button
-                onClick={() => handleRemoveItem(item)}
-                className="absolute bottom-4 ml-24 bg-orange-200 p-2 rounded font-semibold hover:bg-orange-300"
-              >
-                Remove
-              </button>
-            ) : (
-              <button
-                onClick={() => handleAddItem(item)}
-                className="absolute bottom-4 ml-24 bg-orange-200 p-2 rounded font-semibold hover:bg-orange-300"
-              >
-                ADD+
-              </button>
-            )}
-          </div>
+          {/* <hr className="w-full h-px mx-auto bg-slate-100 border-0" />
+          <div> 
+          </div> */}
         </div>
+        
       ))}
     </div>
   );
@@ -63,7 +72,7 @@ export const ItemsClearButton = (RestaurantMenuItems) => {
     return (
       <div>
         <RestaurantMenuItems {...props} />
-        <button className="p-4 bg-orange-400 rounded-md">Remove</button>
+        {/* <button className="p-4 bg-orange-400 rounded-md">Remove</button> */}
       </div>
     );
   };

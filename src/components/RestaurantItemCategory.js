@@ -13,14 +13,14 @@ const RestaurantItemCategory = ({ data, setShowIndex, showItems }) => {
     <div>
       <div
         onClick={handleClick}
-        className="cursor-pointer flex justify-between px-5 py-3 w-6/12 mx-auto mt-3  bg-orange-50 shadow-md "
+        className="px-5 py-3 flex justify-between  cursor-pointer  bg-white shadow-md "
       >
         <span className="font-semibold">
           {data.title}({data.itemCards.length})
         </span>
         <span>{"🔽"}</span>
       </div>
-      <div className="flex justify-between px-5 py-3 w-6/12 mx-auto mt-3">
+      <div className="">
         {showItems && <RestaurantMenuItems items={data.itemCards} />}
       </div>
     </div>
