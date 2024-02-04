@@ -13,7 +13,6 @@ const RestaurantMenuItems = ({ items }) => {
   };
 
   const location = useLocation();
-  console.log(location.pathname, "i am here");
   return (
     <div>
       {items.map((item) => (
@@ -57,9 +56,7 @@ const RestaurantMenuItems = ({ items }) => {
               )}
             </div>
           </div>
-          {/* <hr className="w-full h-px mx-auto bg-slate-100 border-0" />
-          <div> 
-          </div> */}
+       
         </div>
         
       ))}

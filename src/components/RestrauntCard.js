@@ -7,8 +7,9 @@ const RestrauntCard = (props) => {
   const { name, cuisines, avgRating, aggregatedDiscountInfoV3 } = resData?.info;
   const { deliveryTime } = resData?.info.sla;
   const { loggedInUser } = useContext(UserContext);
+  const slicedCuisines = cuisines.slice(0,6);
   return (
-    <div data-testid="resCard" className="p-4 relative z-0">
+    <div data-testid="resCard" className="p-4 z-0">
       <div className="w-64 h-80  rounded-xl transform transition duration-250 hover:scale-95">
         <p className="absolute text-center pt-32 text-white font-bold text-xl pl-4">
           {aggregatedDiscountInfoV3?.header}{" "}
@@ -26,7 +27,7 @@ const RestrauntCard = (props) => {
             {avgRating}⭐{" • "}
             {deliveryTime} mins.
           </h1>
-          <h1 className="">{cuisines.join(", ")}</h1>
+          <h1 className="">{slicedCuisines.join(", ")}</h1>
           {/* <h1 className="">{loggedInUser} </h1> */}
         </div>
       </div>

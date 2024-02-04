@@ -4,7 +4,8 @@ import Shimmer from "./Shimmer";
 import { Link, useParams } from "react-router-dom";
 import { RES_ITEMS_IMAGE, RES_LIST } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import SvgRight from "./svgexport-7.svg";
+
+
 
 const Body = () => {
   const [listofRestraunts, setListofRestraunt] = useState([]);
@@ -12,7 +13,7 @@ const Body = () => {
   const [carousalList, setCarousalList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const RestaurantOfferCard = withOfferLabel(RestrauntCard);
-  const navRef = useRef();
+
   const [scrollPosition, setScrollPosition] = useState(0);
   const scrollContainerRef = useRef(null);
 
@@ -46,14 +47,6 @@ const Body = () => {
     // console.log(carousal[2].id, "carsousal data");
   };
   const onlineStatus = useOnlineStatus();
-
-  const handleNav = (direction) => {
-    if (direction === "left") {
-      navRef ? navRef.current.scrollLeft - +200 : null;
-    } else {
-      navRef ? (navRef.current.scrollLeft += 200) : null;
-    }
-  };
 
   if (onlineStatus === false)
     return (
@@ -183,7 +176,7 @@ const Body = () => {
         ))}
       </div>
       <div className="mx-10">
-      <hr className="w-full h-px mx-auto bg-slate-100 border-0 my-10" />
+        <hr className="w-full h-px mx-auto bg-slate-100 border-0 my-10" />
         <h1 className="font-bold text-2xl mt-10">
           Top restaurant chains from Mumbai
         </h1>
