@@ -1,9 +1,12 @@
 import RestrauntCard, { withOfferLabel } from "./RestrauntCard";
 import { useState, useEffect, useContext, useRef } from "react";
-import Shimmer from "./Shimmer";
+// import Shimmer from "./Shimmer";
 import { Link, useParams } from "react-router-dom";
 import { RES_ITEMS_IMAGE, RES_LIST } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+// import Shimmerr from "./Shimmerr";
+
+import { Shimmer,Shimmerr } from "./Shimmer";
 
 
 
@@ -56,9 +59,7 @@ const Body = () => {
     );
   // const { loggedInUser, setUserName } = useContext(UserContext);
 
-  return listofRestraunts.length === 0 ? (
-    <Shimmer />
-  ) : (
+  return  (
     <div className="h-full mt-10 w-10/12 mx-auto">
       <div className="flex justify-between">
         <button
@@ -73,20 +74,7 @@ const Body = () => {
           Top Rated
         </button>
 
-        {/* ---------------------------useContext------------------- */}
-
-        {/* <div>
-          <label htmlFor="" className="font-semibold">UserName: </label>
-
-          <input
-            className="border rounded-md hover:bg-orange-50 p-1"
-            type="text"
-            value={loggedInUser}
-            onChange={(e) => setUserName(e.target.value)}
-          />
-        </div> */}
-
-        {/* ---------------------------useContext------------------- */}
+       
         <div className="search-container">
           <input
             className="border focus:outline-none rounded-md p-1"
@@ -166,14 +154,20 @@ const Body = () => {
         className="m-2 flex overflow-x-auto space-x-4 no-scrollbar scroll-smooth"
         ref={scrollContainerRef}
       >
-        {carousalList.map((card, index) => (
-          <img
-            key={index}
-            className="w-64 h-40 object-cover"
-            src={RES_ITEMS_IMAGE + card.imageId}
-            alt={`Image ${index}`}
-          />
-        ))}
+        {carousalList.length > 0 ? (
+          carousalList.map((card, index) => (
+            <img
+              key={index}
+              className="w-64 h-40 object-cover"
+              src={RES_ITEMS_IMAGE + card.imageId}
+              alt={`Image ${index}`}
+            />
+          ))
+        ) : (
+          Array.from({ length: 9 }).map((_, index) => (
+            <Shimmerr key={index} />
+          ))
+        )}
       </div>
       <div className="mx-10">
         <hr className="w-full h-px mx-auto bg-slate-100 border-0 my-10" />
@@ -183,15 +177,21 @@ const Body = () => {
       </div>
 
       <div className="flex flex-wrap justify-evenly mt-4">
-        {filteredRestraunts.map((restraunt) => (
-          <Link key={restraunt.info.id} to={"/restaurant/" + restraunt.info.id}>
-            {restraunt.info.isOpen ? (
-              <RestaurantOfferCard resData={restraunt} />
-            ) : (
-              <RestrauntCard resData={restraunt} />
-            )}
-          </Link>
-        ))}
+      {filteredRestraunts.length > 0 ? (
+          filteredRestraunts.map((restraunt) => (
+            <Link key={restraunt.info.id} to={"/restaurant/" + restraunt.info.id}>
+              {restraunt.info.isOpen ? (
+                <RestaurantOfferCard resData={restraunt} />
+              ) : (
+                <RestrauntCard resData={restraunt} />
+              )}
+            </Link>
+          ))
+        ) : (
+          Array.from({ length: 8 }).map((_, index) => (
+            <Shimmer key={index} />
+          ))
+        )}
       </div>
     </div>
   );

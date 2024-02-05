@@ -29,7 +29,7 @@ const CartPage = () => {
 
         <div className="mx-auto">
           {CartItems.length === 0 ? (
-            <img className="size-72" src={EMPTY_CART} alt="" srcset="" />
+            <img  key={CartItems?.index} className="size-72" src={EMPTY_CART} alt="" />
           ) : (
             <RestaurantMenuItemsWithClearButton
               key={CartItems?.index}
