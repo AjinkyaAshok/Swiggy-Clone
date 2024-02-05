@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
-import DashDineLogo from "../components/DashDine.png"
+import DashDineLogo from "../components/dashdine.png"
 
 const Header = () => {
   const [loginButton, setLoginButton] = useState("Sign In");
