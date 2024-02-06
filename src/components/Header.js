@@ -41,7 +41,7 @@ const Header = () => {
             className="px-4 hover:text-orange-300"
             onClick={() => {
               loginButton === "Sign In"
-                ? setLoginButton("Sign Out")
+                ? setLoginButton("Sign In")
                 : setLoginButton("Sign In");
             }}
           >
