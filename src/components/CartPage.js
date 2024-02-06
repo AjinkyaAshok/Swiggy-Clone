@@ -15,8 +15,8 @@ const CartPage = () => {
     ItemsClearButton(RestaurantMenuItems);
 
   return (
-    <div className="flex">
-      <div className="w-7/12 p-5">
+    <div className="flex justify-around">
+      <div className="w-7/12 p-5 border mt-10 rounded-md">
         <div className="flex justify-between mb-3">
           <h1 className="font-bold text-2xl">CHECKOUT</h1>
           <button
@@ -27,9 +27,14 @@ const CartPage = () => {
           </button>
         </div>
 
-        <div className="mx-auto">
+        <div className="">
           {CartItems.length === 0 ? (
-            <img  key={CartItems?.index} className="size-72" src={EMPTY_CART} alt="" />
+            <img
+              key={CartItems?.index}
+              className="mx-auto size-72"
+              src={EMPTY_CART}
+              alt=""
+            />
           ) : (
             <RestaurantMenuItemsWithClearButton
               key={CartItems?.index}
@@ -39,7 +44,7 @@ const CartPage = () => {
         </div>
       </div>
 
-      <div className="w-5/12 p-5">
+      <div className="w-4/12 p-5 border mt-10 rounded-md">
         <div className="flex justify-between mb-3">
           <h1 className="font-bold text-2xl">PAYMENT</h1>
           <button
@@ -50,9 +55,7 @@ const CartPage = () => {
           </button>
         </div>
 
-
         {/* <h1>Total Amount:{CartItems.length}</h1> */}
-        
       </div>
     </div>
   );
