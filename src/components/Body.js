@@ -6,9 +6,8 @@ import { RES_ITEMS_IMAGE, RES_LIST } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 // import Shimmerr from "./Shimmerr";
 
-import { Shimmer,Shimmerr } from "./Shimmer";
-
-
+import { Shimmer, Shimmerr } from "./Shimmer";
+import ErrorPage from "./ErrorPage";
 
 const Body = () => {
   const [listofRestraunts, setListofRestraunt] = useState([]);
@@ -51,15 +50,10 @@ const Body = () => {
   };
   const onlineStatus = useOnlineStatus();
 
-  if (onlineStatus === false)
-    return (
-      <div>
-        <h1>Looks like you are not online</h1>
-      </div>
-    );
+  if (onlineStatus === false) return <ErrorPage />;
   // const { loggedInUser, setUserName } = useContext(UserContext);
 
-  return  (
+  return (
     <div className="h-full mt-10 w-10/12 mx-auto">
       <div className="flex justify-between">
         <button
@@ -74,7 +68,6 @@ const Body = () => {
           Top Rated
         </button>
 
-       
         <div className="search-container">
           <input
             className="border focus:outline-none rounded-md p-1"
@@ -154,20 +147,18 @@ const Body = () => {
         className="m-2 flex overflow-x-auto space-x-4 no-scrollbar scroll-smooth"
         ref={scrollContainerRef}
       >
-        {carousalList.length > 0 ? (
-          carousalList.map((card, index) => (
-            <img
-              key={index}
-              className="w-64 h-40 object-cover"
-              src={RES_ITEMS_IMAGE + card.imageId}
-              alt={`Image ${index}`}
-            />
-          ))
-        ) : (
-          Array.from({ length: 9 }).map((_, index) => (
-            <Shimmerr key={index} />
-          ))
-        )}
+        {carousalList.length > 0
+          ? carousalList.map((card, index) => (
+              <img
+                key={index}
+                className="w-64 h-40 object-cover"
+                src={RES_ITEMS_IMAGE + card.imageId}
+                alt={`Image ${index}`}
+              />
+            ))
+          : Array.from({ length: 9 }).map((_, index) => (
+              <Shimmerr key={index} />
+            ))}
       </div>
       <div className="mx-10">
         <hr className="w-full h-px mx-auto bg-slate-100 border-0 my-10" />
@@ -177,21 +168,22 @@ const Body = () => {
       </div>
 
       <div className="flex flex-wrap justify-evenly mt-4">
-      {filteredRestraunts.length > 0 ? (
-          filteredRestraunts.map((restraunt) => (
-            <Link key={restraunt.info.id} to={"/restaurant/" + restraunt.info.id}>
-              {restraunt.info.isOpen ? (
-                <RestaurantOfferCard resData={restraunt} />
-              ) : (
-                <RestrauntCard resData={restraunt} />
-              )}
-            </Link>
-          ))
-        ) : (
-          Array.from({ length: 8 }).map((_, index) => (
-            <Shimmer key={index} />
-          ))
-        )}
+        {filteredRestraunts.length > 0
+          ? filteredRestraunts.map((restraunt) => (
+              <Link
+                key={restraunt.info.id}
+                to={"/restaurant/" + restraunt.info.id}
+              >
+                {restraunt.info.isOpen ? (
+                  <RestaurantOfferCard resData={restraunt} />
+                ) : (
+                  <RestrauntCard resData={restraunt} />
+                )}
+              </Link>
+            ))
+          : Array.from({ length: 8 }).map((_, index) => (
+              <Shimmer key={index} />
+            ))}
       </div>
     </div>
   );
