@@ -12,4 +12,4 @@ export const RES_MENU =
 
 export const LOGO = "https://drive.google.com/file/d/1G1t194HN8_7GyWrVC5J7ZJAStD-mIkXw/view?usp=sharing"
 
-export const EMPTY_CART = "https://shidory.com/assets/images/empty_cart.webp"
+export const EMPTY_CART = "https://shidory.com/assets/images/empty_cart.webp"c

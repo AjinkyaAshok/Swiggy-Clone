@@ -46,12 +46,11 @@ const Body = () => {
     setCarousalList(
       json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
     );
-    // console.log(carousal[2].id, "carsousal data");
+    
   };
   const onlineStatus = useOnlineStatus();
 
   if (onlineStatus === false) return <ErrorPage />;
-  // const { loggedInUser, setUserName } = useContext(UserContext);
 
   return (
     <div className="h-full mt-10 w-10/12 mx-auto">

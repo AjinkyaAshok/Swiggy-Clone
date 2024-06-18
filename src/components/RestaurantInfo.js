@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {ShimmerResInfo } from "./Shimmer";
+import { ShimmerResInfo } from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantItemCategory from "./RestaurantItemCategory";
@@ -8,16 +8,21 @@ const RestaurantInfo = () => {
   const { resID } = useParams();
   const resInfo = useRestaurantMenu(resID);
   const [showIndex, setShowIndex] = useState(null);
-  if (resInfo === null) return <ShimmerResInfo/>;
+  if (resInfo === null) return <ShimmerResInfo />;
 
-  const { name, cuisines, costForTwo } = resInfo?.cards[0]?.card?.card?.info;
+  const { name, cuisines, costForTwo } = resInfo?.cards[2]?.card?.card?.info;
+
+  //data.cards[1].card.card.gridElements.infoWithStyle.restaurants
 
   const categories =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (ca) =>
         ca.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        
     );
+
+
   return (
     <div className=" w-6/12 mx-auto">
       <div className="my-6 p-4 flex flex-col bg-white shadow-md">
@@ -37,8 +42,10 @@ const RestaurantInfo = () => {
             data={category?.card?.card}
             showItems={index === showIndex ? true : false}
             setShowIndex={() => setShowIndex(index)}
+          
           />
         ))}
+    
       </div>
     </div>
   );
